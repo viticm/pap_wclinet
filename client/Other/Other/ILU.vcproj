@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="8.00"
+	Version="9.00"
 	Name="ILU"
 	ProjectGUID="{9714F02A-8F47-4840-B317-A1CE722CA164}"
+	RootNamespace="ILU"
+	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
 		<Platform
@@ -15,7 +17,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(BuildOut)/$(ConfigurationName)"
+			OutputDirectory="./$(ConfigurationName)"
 			IntermediateDirectory="$(OutDir)/$(ProjectName)"
 			ConfigurationType="4"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
