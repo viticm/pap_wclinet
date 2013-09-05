@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+    <Filter Include="Kernel">
+      <UniqueIdentifier>{7e7d197d-3567-46dd-8109-88d9141e8c27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exception">
+      <UniqueIdentifier>{cce67a31-ddc1-4aae-a202-130ed5ef4a8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exception\XZip">
+      <UniqueIdentifier>{79881d19-c776-4b81-8faf-7641f6e105d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{66ae1df7-8650-485d-b3e0-8e97efee4abe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gfx">
+      <UniqueIdentifier>{fa9de3c8-42ce-4f04-8ce3-e0beac815805}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{92ab014a-d6a4-4dad-a877-faeed18a4dee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\World">
+      <UniqueIdentifier>{61f40d07-7eb7-4b82-a050-6a58e112bfc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object">
+      <UniqueIdentifier>{f7eb2ff5-6696-4aac-92e3-a3ed5ebc8762}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Interface">
+      <UniqueIdentifier>{a1d6a2b1-a6d4-4b0a-9be1-508d29db251b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Event">
+      <UniqueIdentifier>{5843eb0d-6acf-4130-b3f4-be4fb7dd70d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\DataPool">
+      <UniqueIdentifier>{5958ef56-875f-4b5b-a547-9ff201758f4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\DataPool\_new">
+      <UniqueIdentifier>{bbc66656-bf64-4d39-8961-689492e6cee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Action">
+      <UniqueIdentifier>{4b60cdcb-462a-4b6e-8606-d3a884f99a77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{f1ee82db-7211-4991-adf8-f59cf9a8ea6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Time">
+      <UniqueIdentifier>{c39c08ac-6d26-4789-89fe-9409028f6afb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{09ab4588-08c8-4c4b-b701-2a351c727854}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{76342ebd-c8f9-4759-bb3b-5260f86d9686}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound">
+      <UniqueIdentifier>{840978a4-379e-481d-b2ab-db648d1704ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataBase">
+      <UniqueIdentifier>{e397bf21-f139-4831-9172-f005b0298f75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Variable">
+      <UniqueIdentifier>{9c912325-08f2-4ae6-9bc9-7a65f3bc86ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debuger">
+      <UniqueIdentifier>{13cb73f1-769e-4e12-a2f8-71cbe317263e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cursor">
+      <UniqueIdentifier>{1ee80ada-ce67-4042-9d5a-88e2c8576bbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script">
+      <UniqueIdentifier>{0a75dd9f-70b9-4bab-8965-44619a52bd67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Profile">
+      <UniqueIdentifier>{c1767f76-e1a7-4b3e-9b29-b16d275e5871}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FakeObject">
+      <UniqueIdentifier>{ac1be207-4b10-49b3-862d-03834943bdff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Helper">
+      <UniqueIdentifier>{5244c514-9e5f-430b-b773-cfd9ef72b4a4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Common\AxTrace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WXEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\TDClass.cpp">
+      <Filter>Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\TDKernel.cpp">
+      <Filter>Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\TDNode.cpp">
+      <Filter>Kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception\TDCrashReport.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception\TDException.cpp">
+      <Filter>Exception</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception\XZip.cpp">
+      <Filter>Exception\XZip</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\TDUtil.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Gfx\TDGfxSystem.cpp">
+      <Filter>Gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\World\TDWorldSystem.cpp">
+      <Filter>Game\World</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Object\TDObjectSystem.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Interface\TDGameInterface.cpp">
+      <Filter>Game\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Event\TDEventSystem.cpp">
+      <Filter>Game\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\DataPool\TDUIDataPool.cpp">
+      <Filter>Game\DataPool</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\DataPool\TDDataPool.cpp">
+      <Filter>Game\DataPool\_new</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Action\TDActionSystem.cpp">
+      <Filter>Game\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\TDInputSystem.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Time\TDTimeSystem.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\TDUISystem.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\TDMath.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound\TDSound.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Dbc\TDDataBase.cpp">
+      <Filter>DataBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Variable\TDVariable.cpp">
+      <Filter>Variable</Filter>
+    </ClCompile>
+    <ClCompile Include="debuger\TDDebuge.cpp">
+      <Filter>Debuger</Filter>
+    </ClCompile>
+    <ClCompile Include="Cursor\TDCursorSystem.cpp">
+      <Filter>Cursor</Filter>
+    </ClCompile>
+    <ClCompile Include="Script\TDScriptSystm.cpp">
+      <Filter>Script</Filter>
+    </ClCompile>
+    <ClCompile Include="Profile\TDProfile.cpp">
+      <Filter>Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="FakeObject\TDFakeObjSystem.cpp">
+      <Filter>FakeObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Helper\TDHelperSystem.cpp">
+      <Filter>Helper</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Common\AxTrace.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDBasicType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDClass.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDKernel.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDNode.h">
+      <Filter>Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception\TDCrashReport.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDException.h">
+      <Filter>Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception\XZip.h">
+      <Filter>Exception\XZip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDUtil.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDGfxSystem.h">
+      <Filter>Gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDWorldSystem.h">
+      <Filter>Game\World</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDObjectSystem.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDGameInterface.h">
+      <Filter>Game\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDEventSystem.h">
+      <Filter>Game\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDUIDataPool.h">
+      <Filter>Game\DataPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDDataPool.h">
+      <Filter>Game\DataPool\_new</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDActionSystem.h">
+      <Filter>Game\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDInputSystem.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDTimeSystem.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDUISystem.h">
+      <Filter>UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDMath.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDSound.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDDataBase.h">
+      <Filter>DataBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDDBC_Struct.h">
+      <Filter>DataBase</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDVariable.h">
+      <Filter>Variable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDDebuger.h">
+      <Filter>Debuger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDCursorSystem.h">
+      <Filter>Cursor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDScriptSystem.h">
+      <Filter>Script</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDProfile.h">
+      <Filter>Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDFakeObjSystem.h">
+      <Filter>FakeObject</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Common\TDHelperSystem.h">
+      <Filter>Helper</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

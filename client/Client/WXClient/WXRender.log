@@ -1,0 +1,31 @@
+00:32:50: Creating resource group General
+00:32:50: Creating resource group Internal
+00:32:50: Creating resource group Autodetect
+00:32:50: Registering ResourceManager for type Material
+00:32:50: Registering ResourceManager for type Mesh
+00:32:50: Registering ResourceManager for type Skeleton
+00:32:50: MovableObjectFactory for type 'ParticleSystem' registered.
+00:32:50: OverlayElementFactory for type Panel registered.
+00:32:50: OverlayElementFactory for type BorderPanel registered.
+00:32:50: OverlayElementFactory for type TextArea registered.
+00:32:50: Registering ResourceManager for type Font
+00:32:50: ArchiveFactory for archive type FileSystem registered.
+00:32:50: ArchiveFactory for archive type Zip registered.
+00:32:50: DevIL version: Developer's Image Library (DevIL) 1.6.8pre Mar 19 2009
+00:32:50: DevIL image formats: bmp dib cut dcx dds gif hdr ico cur jpg jpe jpeg lif mdl pcx pic pix png pbm pgm pnm ppm psd pdd psp pxr sgi bw rgb rgba tga vda icb vst tif tiff wal xpm raw 
+00:32:50: Registering ResourceManager for type HighLevelGpuProgram
+00:32:55: Registering ResourceManager for type Compositor
+00:32:55: MovableObjectFactory for type 'Entity' registered.
+00:32:55: MovableObjectFactory for type 'Light' registered.
+00:32:55: MovableObjectFactory for type 'BillboardSet' registered.
+00:32:55: MovableObjectFactory for type 'ManualObject' registered.
+00:32:55: MovableObjectFactory for type 'BillboardChain' registered.
+00:32:55: MovableObjectFactory for type 'RibbonTrail' registered.
+00:32:55: ArchiveFactory for archive type WXFileSystem registered.
+00:32:55: MovableObjectFactory for type 'AutoAnimationEntity' registered.
+00:32:55: MovableObjectFactory for type 'Projector' registered.
+00:32:55: Particle Renderer Type 'texcoord_billboard' registered
+00:32:55: Particle Renderer Type 'mesh' registered
+00:32:55: Particle Affector Type 'MeshRotator' registered
+00:32:55: Particle Affector Type 'MeshAnimationAffector' registered
+00:32:55: Particle Renderer Type 'ribbon' registered
