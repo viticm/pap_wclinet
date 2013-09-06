@@ -42,7 +42,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\Common\;..\..\..\Common;..\..\..\Common\Packets;..\..\..\Common\DataBase;..\LuaPlus\Src\LuaPlus;..\..\..\Common\Combat;..\..\..\Common\Net;.\"
+				AdditionalIncludeDirectories="..\Common\;..\..\..\Common;..\..\..\Common\Packets;..\..\..\Common\DataBase;..\LuaPlus\Src\LuaPlus;..\..\..\Common\Combat;..\..\..\Common\Net;.\;..\..\DirectX9\Include;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;__WINDOWS__;GAME_CLIENT"
 				StringPooling="true"
 				MinimalRebuild="true"
@@ -77,7 +77,7 @@
 				AdditionalOptions="/ignore:4078"
 				OutputFile="..\..\_Scripts\VC7.1\Debug\WXClient.exe"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="../../Common"
+				AdditionalLibraryDirectories="../../Common;..\..\DirectX9\Lib\x86"
 				IgnoreDefaultLibraryNames=""
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="..\..\_Scripts\VC7.1\Debug\WXClient.pdb"

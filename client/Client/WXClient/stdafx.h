@@ -7,8 +7,8 @@
 
 #define WIN32_LEAN_AND_MEAN		// Exclude rarely-used stuff from Windows headers
 
-#define _WIN32_WINDOWS	(0x0410)	//Windows 98
-#define _WIN32_WINNT	(0x0500)	//Windows 2000
+//#define _WIN32_WINDOWS	(0x0410)	//Windows 98
+//#define _WIN32_WINNT	(0x0500)	//Windows 2000
 
 // Windows Header Files:
 #include <windows.h>

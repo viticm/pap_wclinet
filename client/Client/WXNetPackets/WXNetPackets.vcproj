@@ -4,6 +4,7 @@
 	Version="9.00"
 	Name="WXNetPackets"
 	ProjectGUID="{249B983A-3A90-4EA7-96BD-59EBC2FB94DC}"
+	RootNamespace="WXNetPackets"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>
