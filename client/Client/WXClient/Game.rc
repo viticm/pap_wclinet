@@ -77,31 +77,23 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,166,161,50,14
     RTEXT           "输入用户ID:",IDC_STATIC,7,11,61,12
     EDITTEXT        IDC_EDIT_USERID,74,7,142,14,ES_AUTOHSCROLL
-    CONTROL         "不再显示",IDC_CHECK_REMEMBER,"Button",BS_AUTOCHECKBOX | 
-                    WS_DISABLED | WS_TABSTOP,7,166,73,9
-    COMBOBOX        IDC_COMBO_SERVER,73,98,143,62,CBS_DROPDOWN | WS_VSCROLL | 
-                    WS_TABSTOP
+    CONTROL         "不再显示",IDC_CHECK_REMEMBER,"Button",BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,7,166,73,9
+    COMBOBOX        IDC_COMBO_SERVER,73,98,143,62,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
     RTEXT           "全局泛光:",IDC_STATIC,7,120,61,12
-    COMBOBOX        IDC_COMBO_POSTFILTER,73,119,143,62,CBS_DROPDOWNLIST | 
-                    WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_POSTFILTER,73,119,143,62,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
     RTEXT           "渲染器:",IDC_STATIC,7,143,61,12
-    COMBOBOX        IDC_COMBO_DEVICE,73,140,143,62,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_DEVICE,73,140,143,62,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,31,209,2
     CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,9,89,207,1
     RTEXT           "性别:",IDC_STATIC_GENDER,7,44,61,16
-    COMBOBOX        IDC_COMBO_GENDER,73,42,143,62,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_GENDER,73,42,143,62,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     RTEXT           "初始场景:",IDC_STATIC_SCENE,7,67,61,16,WS_DISABLED
-    COMBOBOX        IDC_COMBO_SCENE,73,65,143,62,CBS_DROPDOWNLIST | 
-                    WS_DISABLED | WS_VSCROLL | WS_TABSTOP
-    CONTROL         "游戏服务器:",IDC_CHECK_GAMESERVER,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,10,100,60,10
+    COMBOBOX        IDC_COMBO_SCENE,73,65,143,62,CBS_DROPDOWNLIST | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "游戏服务器:",IDC_CHECK_GAMESERVER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,100,60,10
 END
 
 IDD_DIALOG_WXC_SML DIALOGEX 0, 0, 386, 76
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
-    WS_SYSMENU
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "请简单描述，您刚刚的操作！"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
@@ -163,8 +155,8 @@ IDC_CURSOR_IDENFITY     CURSOR                  "Res\\Identify.CUR"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,0,0,4
- PRODUCTVERSION 0,0,0,4
+ FILEVERSION 0,0,0,1
+ PRODUCTVERSION 0,0,0,1
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -179,15 +171,15 @@ BEGIN
     BEGIN
         BLOCK "000004b0"
         BEGIN
-            VALUE "Comments", "武侠世界"
-            VALUE "CompanyName", "红图互动"
+            VALUE "Comments", "前世·今生"
+            VALUE "CompanyName", "viticm"
             VALUE "FileDescription", "Alpha_0.0.0004"
-            VALUE "FileVersion", "0, 0, 0, 4"
+            VALUE "FileVersion", "0, 0, 0, 1"
             VALUE "InternalName", "WXSJ"
-            VALUE "LegalCopyright", "Copyright 红图互动(C) 2007"
-            VALUE "OriginalFilename", "WXClient.exe"
-            VALUE "ProductName", "武侠世界"
-            VALUE "ProductVersion", "0, 0, 0, 4"
+            VALUE "LegalCopyright", "Copyright viticm(C) 2013"
+            VALUE "OriginalFilename", "client.exe"
+            VALUE "ProductName", "前世·今生"
+            VALUE "ProductVersion", "0, 0, 0, 1"
         END
     END
     BLOCK "VarFileInfo"

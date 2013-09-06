@@ -10,7 +10,7 @@ HWND			g_hMainWnd			= NULL;
 HINSTANCE		g_hInstance			= NULL;
 
 //当前版本号
-const CHAR		VERSION_INFO[]		= "0.0.0005";
+const CHAR		VERSION_INFO[]		= "0.0.0001";
 
 //标题
-const CHAR		GAME_TITLE[]		="武OL";
+const CHAR		GAME_TITLE[]		="前世·今生";
