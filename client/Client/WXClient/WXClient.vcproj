@@ -76,7 +76,7 @@
 				Name="VCLinkerTool"
 				IgnoreImportLibrary="false"
 				AdditionalOptions="/ignore:4078"
-				OutputFile="..\..\_Scripts\VC7.1\Debug\clinet.exe"
+				OutputFile="..\..\_Scripts\VC7.1\Debug\client.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="../../Common;..\..\DirectX9\Lib\x86"
 				IgnoreDefaultLibraryNames="MSVCRT;MSVCR90"
