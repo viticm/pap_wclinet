@@ -76,6 +76,7 @@
 				OutputFile="./Debug/Main.dll"
 				Version="0.99"
 				AdditionalLibraryDirectories="./Debug;..\..\OGRE\Dependencies\lib\Debug;..\..\Cg\lib;..\..\DirectX9\Lib\x86"
+				IgnoreDefaultLibraryNames="MSVCRT;MSVCR90"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="./Debug/$(ProjectName).pdb"
 				RandomizedBaseAddress="1"

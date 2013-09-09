@@ -173,9 +173,9 @@ BEGIN
         BEGIN
             VALUE "Comments", "前世·今生"
             VALUE "CompanyName", "viticm"
-            VALUE "FileDescription", "Alpha_0.0.0004"
+            VALUE "FileDescription", "Past and Present"
             VALUE "FileVersion", "0, 0, 0, 1"
-            VALUE "InternalName", "WXSJ"
+            VALUE "InternalName", "PAP"
             VALUE "LegalCopyright", "Copyright viticm(C) 2013"
             VALUE "OriginalFilename", "client.exe"
             VALUE "ProductName", "前世·今生"

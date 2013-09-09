@@ -74,11 +74,12 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				IgnoreImportLibrary="false"
 				AdditionalOptions="/ignore:4078"
-				OutputFile="..\..\_Scripts\VC7.1\Debug\WXClient.exe"
+				OutputFile="..\..\_Scripts\VC7.1\Debug\clinet.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="../../Common;..\..\DirectX9\Lib\x86"
-				IgnoreDefaultLibraryNames=""
+				IgnoreDefaultLibraryNames="MSVCRT;MSVCR90"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="..\..\_Scripts\VC7.1\Debug\WXClient.pdb"
 				SubSystem="2"
@@ -3347,6 +3348,10 @@
 				>
 			</File>
 		</Filter>
+		<File
+			RelativePath=".\ClassDiagram1.cd"
+			>
+		</File>
 		<File
 			RelativePath=".\stdafx.cpp"
 			>
