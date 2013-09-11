@@ -110,7 +110,7 @@ VOID CUIWindowItem::PreLoadWindow(VOID)
 	_snprintf(szTemp, MAX_PATH, "%s_PreLoad", m_strWindowName.c_str());
 	m_pScriptEnv->DoFunction(szTemp);
 	FILE * fp;
-	if((fp=fopen("Out.txt","a+w"))!=0){
+	if((fp=fopen("Out.txt","a"))!=0){
 		fprintf(fp,"->>>%s\n",szTemp);
 		fclose(fp);
 	}
@@ -143,7 +143,7 @@ VOID CUIWindowItem::LoadWindow(VOID)
 	m_pScriptEnv->DoFunction(szTemp);
 
 	FILE * fp;
-	if((fp=fopen("Out.txt","a+w"))!=0){
+	if((fp=fopen("Out.txt","a"))!=0){
 		fprintf(fp,"->>>%s\n",szTemp);
 		fclose(fp);
 	}

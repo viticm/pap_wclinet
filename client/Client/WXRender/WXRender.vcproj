@@ -19,7 +19,7 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory="..\..\_Scripts\VC7.1\Debug"
-			IntermediateDirectory="..\..\_Scripts\VC7.1\Debug/WXRender"
+			IntermediateDirectory="..\..\_Scripts\VC7.1\Debug/Render"
 			ConfigurationType="2"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
@@ -75,8 +75,8 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/ignore:4078"
-				AdditionalDependencies="winmm.lib WXCore.lib Main.lib Expat.lib opcode.lib tinyxml.lib WXEngine.lib ILU.lib DevIL.lib"
-				OutputFile="..\..\_Scripts\VC7.1\Debug/WXRender.dll"
+				AdditionalDependencies="winmm.lib WXCore.lib OgreMain.lib Expat.lib opcode.lib tinyxml.lib WXEngine.lib ILU.lib DevIL.lib"
+				OutputFile="..\..\_Scripts\VC7.1\Debug/Render.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;..\..\_Scripts\VC7.1\Debug&quot;"
 				IgnoreAllDefaultLibraries="false"
@@ -87,7 +87,7 @@
 				SubSystem="2"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
-				ImportLibrary="$(OutDir)/WXRender.lib"
+				ImportLibrary="$(OutDir)/Render.lib"
 				TargetMachine="1"
 			/>
 			<Tool

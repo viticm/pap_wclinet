@@ -212,7 +212,7 @@ VOID CGameProcedure::InitStaticMemeber(VOID)
 	// 加载插件中的类
 //	PROFILE_PUSH(LoadPluginDll);
 //	g_theKernel.LoadPlugin(_T("Debuger.dll"), &g_theKernel);
-	g_theKernel.LoadPlugin(_T("WXRender.dll"), &g_theKernel);
+	g_theKernel.LoadPlugin(_T("Render.dll"), &g_theKernel);
 	g_theKernel.LoadPlugin(_T("UISystem.dll"), &g_theKernel);
 //	PROFILE_POP(LoadPluginDll);
 

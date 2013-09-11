@@ -4,6 +4,7 @@
 	Version="9.00"
 	Name="CEGUISystem"
 	ProjectGUID="{52608C89-4B8F-44A6-A984-8877E8DB8D03}"
+	RootNamespace="CEGUISystem"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>
@@ -72,7 +73,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="Main.lib WXCore.lib WXEngine.lib UIBase.lib LuaPlus.lib"
+				AdditionalDependencies="OgreMain.lib WXCore.lib WXEngine.lib UIBase.lib LuaPlus.lib"
 				OutputFile="..\..\_Scripts\VC7.1\Debug/UISystem.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="&quot;..\..\_Scripts\VC7.1\Debug&quot;;..\..\OGRE\Dependencies\lib\Debug"

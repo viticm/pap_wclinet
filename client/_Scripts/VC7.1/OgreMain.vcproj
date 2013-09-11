@@ -73,8 +73,8 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="freetype.lib kernel32.lib user32.lib zziplib.lib zdll.lib ILU.lib DevIL.lib ILUT.lib cg.lib d3d9.lib d3dx9.lib dxerr9.lib dxguid.lib"
-				OutputFile="./Debug/Main.dll"
-				Version="0.99"
+				OutputFile="./Debug/$(ProjectName).dll"
+				Version="0.1"
 				AdditionalLibraryDirectories="./Debug;..\..\OGRE\Dependencies\lib\Debug;..\..\Cg\lib;..\..\DirectX9\Lib\x86"
 				IgnoreDefaultLibraryNames="MSVCRT;MSVCR90"
 				GenerateDebugInformation="true"

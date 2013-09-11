@@ -58,8 +58,8 @@ END
 
 IDC_GAME ACCELERATORS 
 BEGIN
-    "?",            IDM_ABOUT,              ASCII,  ALT
-    "/",            IDM_ABOUT,              ASCII,  ALT
+    "/",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+    VK_PACKET,      IDM_ABOUT,              VIRTKEY, ALT, NOINVERT
 END
 
 
