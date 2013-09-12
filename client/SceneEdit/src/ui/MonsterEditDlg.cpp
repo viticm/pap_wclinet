@@ -463,7 +463,7 @@ void CMonsterEditDlg::InitMonsterListCtrlTable()
 		return;
 	}
 
-	if(!excelDBFileModelName.OpenFromTXT("..\\config\\CharModel.txt"))
+	if(!excelDBFileModelName.OpenFromTXT("..\\Data\\config\\CharModel.txt"))
 	{
 		wxLogMessage(_T("不能打开服务器怪物信息表， 不能编辑怪物信息\n"));
 		return;

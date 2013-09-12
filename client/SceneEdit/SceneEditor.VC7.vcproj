@@ -880,6 +880,18 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;wdr"
 			>
 			<File
+				RelativePath=".\src\ui\res\game.ico"
+				>
+			</File>
+			<File
+				RelativePath=".\game.ico"
+				>
+			</File>
+			<File
+				RelativePath=".\src\ui\res\icon1.ico"
+				>
+			</File>
+			<File
 				RelativePath=".\src\ui\res\locker.bmp"
 				>
 			</File>
@@ -917,6 +929,14 @@
 			</File>
 			<File
 				RelativePath=".\src\ui\res\SceneEditor.wdr"
+				>
+			</File>
+			<File
+				RelativePath=".\src\ui\res\small.ico"
+				>
+			</File>
+			<File
+				RelativePath=".\small.ico"
 				>
 			</File>
 			<File

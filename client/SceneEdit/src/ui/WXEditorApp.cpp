@@ -304,7 +304,7 @@ bool FairyEditorApp::_InitImpl()
     funcDeInit  = (FUNC_DEINIT)(&SSDeInit);
     funcSetSoundVolume = (FUNC_SETSOUNDVOLUME)(&SSSetSoundVolume);
 	// 声音系统的初始化
-	if ( NULL == funcInit || false == funcInit("..\\Sound\\", "..\\config\\SoundInfo.txt") )
+	if ( NULL == funcInit || false == funcInit("..\\Data\\Sound\\", "..\\Data\\config\\SoundInfo.txt") )
     {
         wxMessageBox(_("Sound System Init Failed!"));
     }
