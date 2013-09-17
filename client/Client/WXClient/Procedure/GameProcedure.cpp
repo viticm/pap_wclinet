@@ -145,6 +145,7 @@ bool					CGameProcedure::m_bNeedFreshMinimap		= false;
 
 VOID CGameProcedure::InitStaticMemeber(VOID)
 {
+	TDU_Log( "PAP System Init( Build at %s %s )", __DATE__, __TIME__ ) ;
 	//-------------------------------------------------------------------
 	//初始化随即变量种子
 	srand( (unsigned)timeGetTime() );
@@ -301,6 +302,7 @@ VOID CGameProcedure::InitStaticMemeber(VOID)
 	s_pHelperSystem		->Initial(NULL);
 	s_pResourceProvider	->Initial(NULL);
 
+	s_pCursorMng->SetCursor( CURSOR_NORMAL ) ;
 
 	s_pSkillDataMgr	= new CSkillDataMgr;
 	s_pSkillDataMgr->Init( s_pDataBaseSystem->GetDataBase( DBC_SKILL_DATA )->GetDBCFile() );
@@ -655,7 +657,7 @@ VOID CGameProcedure::CreateMainWnd(VOID)
 	//------------------------------------------------------
 	//创建窗口
 	CHAR szTitle[MAX_PATH];
-	_snprintf(szTitle, MAX_PATH, "%s %s (%s %s)", GAME_TITLE, VERSION_INFO, __DATE__, __TIME__);
+	_snprintf( szTitle, MAX_PATH, "%s %s", GAME_TITLE, VERSION_INFO );
 
 	HWND hWnd = CreateWindowEx(NULL, MAINWINDOW_CLASS, szTitle, 
 		DEFWINDOW_STYLE,
@@ -680,6 +682,7 @@ VOID CGameProcedure::CreateMainWnd(VOID)
 		s_pEventSystem->PushEvent(GE_CHAT_ADJUST_MOVE_CTL, (INT)fResoution.x, (INT)fResoution.y);
 	}
 
+	CCursorMng::GetMe()->SetCursor( CURSOR_NORMAL );
 	ShowWindow(hWnd, SW_SHOW);
 	UpdateWindow(hWnd);
 

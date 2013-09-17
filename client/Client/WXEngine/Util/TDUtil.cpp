@@ -9,8 +9,8 @@
 //×Ö·û´®Ïà¹Ø
 void TDU_Log(LPCSTR pszFmt, ...)
 {
-	FILE* fp = fopen(".\\WXClient.log", "a" );
-	if(!fp) fp = fopen(".\\WXClient.log", "w");
+	FILE* fp = fopen(".\\client.log", "a" );
+	if(!fp) fp = fopen(".\\client.log", "w");
 	if(!fp) return;
 
 	CHAR szTemp[1024] = {0};
