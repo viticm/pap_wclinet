@@ -57,7 +57,7 @@ BOOL CCrashReportApp::InitInstance()
 	// 更改用于存储设置的注册表项
 	// TODO: 应适当修改该字符串，
 	// 例如修改为公司或组织名
-	/*SetRegistryKey(_T("应用程序向导生成的本地应用程序"));
+	SetRegistryKey(_T("应用程序向导生成的本地应用程序"));
 
 	CCrashReportDlg dlg;
 	m_pMainWnd = &dlg;
@@ -74,7 +74,7 @@ BOOL CCrashReportApp::InitInstance()
 	}
 
 	// 由于对话框已关闭，所以将返回 FALSE 以便退出应用程序，
-	// 而不是启动应用程序的消息泵。*/
+	// 而不是启动应用程序的消息泵。
 	LPTSTR lpCmdLine = this->m_lpCmdLine;
 
 	CHAR szFileName[MAX_PATH] = {0};
@@ -134,22 +134,22 @@ void CCrashReportApp::SendReport(void)
 	CHAR szLogFile[MAX_PATH];
 
 	strncpy(szLogFile, szCurrentDir, MAX_PATH);
-	PathAppend(szLogFile, "WXRender.log");
-	ZipAdd(hz, "WXRender.log", (void *)szLogFile, 0, ZIP_FILENAME);
+	PathAppend(szLogFile, "Render.log");
+	ZipAdd(hz, "Render.log", (void *)szLogFile, 0, ZIP_FILENAME);
 
 	strncpy(szLogFile, szCurrentDir, MAX_PATH);
 	PathAppend(szLogFile, "UISystem.log");
 	ZipAdd(hz, "UISystem.log", (void *)szLogFile, 0, ZIP_FILENAME);
 
 	strncpy(szLogFile, szCurrentDir, MAX_PATH);
-	PathAppend(szLogFile, "../wxversion");
-	ZipAdd(hz, "wxversion", (void *)szLogFile, 0, ZIP_FILENAME);
+	PathAppend(szLogFile, "../version");
+	ZipAdd(hz, "version", (void *)szLogFile, 0, ZIP_FILENAME);
 
 	CloseZip(hz);
 
 	//--------------------------发送
 	CFtpTrans CMyFtpTrans;
-	CMyFtpTrans.SetAccessRight("wxsj","up");
+	CMyFtpTrans.SetAccessRight("pap","up");
 	if(CMyFtpTrans.OpenConnection("ftp.hopecool.com "))
 	{
 		CMyFtpTrans.PutFile(szLocalFile,szCrashFile);
