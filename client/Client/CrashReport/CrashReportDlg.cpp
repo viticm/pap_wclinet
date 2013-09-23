@@ -56,6 +56,7 @@ void CCrashReportDlg::DoDataExchange(CDataExchange* pDX)
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_FIX_SUGGESTION, m_fix_suggestion);
 	DDX_Control(pDX, ID_FULL_INFO, m_full_info);
+	DDX_Control(pDX, ID_DEBUG, m_win_debug);
 }
 
 BEGIN_MESSAGE_MAP(CCrashReportDlg, CDialog)
@@ -118,6 +119,8 @@ BOOL CCrashReportDlg::OnInitDialog()
 
 	SetDlgItemText( IDC_DUMP_INFO, m_dump_info) ;
 	SetDlgItemText( IDC_FILE_TITLE, m_file_title ) ;
+    
+	if ( !m_debug ) GetDlgItem( ID_DEBUG )->EnableWindow( FALSE ) ;
 
 	return TRUE;  // 除非设置了控件的焦点，否则返回 TRUE
 }
@@ -181,11 +184,12 @@ void CCrashReportDlg::OnEnChangeDumpInfo()
 	// TODO:  Add your control notification handler code here
 }
 
-void CCrashReportDlg::InitDialog( CString file_name, CString dump_info, CString dump_file_path )
+void CCrashReportDlg::InitDialog( CString file_name, CString dump_info, CString dump_file_path, bool debug )
 {
     m_file_title = file_name ;
 	m_dump_info = dump_info ;
 	m_dump_file_path = dump_file_path ;
+	m_debug = debug ;
 }
 
 HBRUSH CCrashReportDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
@@ -195,7 +199,7 @@ HBRUSH CCrashReportDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 	// TODO:  Change any attributes of the DC here
     if ( ID_DEBUG == pWnd->GetDlgCtrlID() )
 	{
-		pDC->SetTextColor( RGB( 172, 168, 153 ) );      //字体颜色
+		//pDC->SetTextColor( RGB( 172, 168, 153 ) );      //字体颜色
 		//pDC->SetBkColor(RGB(0, 0, 255));       //字体背景色 
 	}
 	// TODO:  Return a different brush if the default is not desired

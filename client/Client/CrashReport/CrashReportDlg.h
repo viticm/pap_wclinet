@@ -34,11 +34,14 @@ public:
 	afx_msg void OnEnChangeDumpInfo();
 	HWND CreateSysLink( HWND hDlg, HINSTANCE hInst, RECT rect ) ;
 	afx_msg void OnNMClickFixSuggestion(NMHDR *pNMHDR, LRESULT *pResult);
-	void InitDialog( CString file_name, CString dump_info, CString dump_file_path ) ;
+	void InitDialog( CString file_name, CString dump_info, CString dump_file_path, bool debug ) ;
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+protected:
+	CHyperLink m_win_debug;
 	CHyperLink m_fix_suggestion;
 	CHyperLink m_full_info;
     CString m_file_title ; 
 	CString m_dump_info ; 
-	CString m_dump_file_path ;  
-	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+	CString m_dump_file_path ;
+	bool m_debug;
 };
