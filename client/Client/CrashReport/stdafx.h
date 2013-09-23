@@ -41,4 +41,3 @@
 #include <shlwapi.h>
 #pragma comment(lib, "shlwapi.lib")
 #endif // _AFX_NO_AFXCMN_SUPPORT
-

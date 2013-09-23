@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include "HyperLink.h"
+#include "afxwin.h"
 
 // CCrashReportDlg ¶Ô»°¿ò
 class CCrashReportDlg : public CDialog
@@ -30,4 +32,13 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnEnChangeDumpInfo();
+	HWND CreateSysLink( HWND hDlg, HINSTANCE hInst, RECT rect ) ;
+	afx_msg void OnNMClickFixSuggestion(NMHDR *pNMHDR, LRESULT *pResult);
+	void InitDialog( CString file_name, CString dump_info, CString dump_file_path ) ;
+	CHyperLink m_fix_suggestion;
+	CHyperLink m_full_info;
+    CString m_file_title ; 
+	CString m_dump_info ; 
+	CString m_dump_file_path ;  
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 };

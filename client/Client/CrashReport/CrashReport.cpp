@@ -60,6 +60,7 @@ BOOL CCrashReportApp::InitInstance()
 	SetRegistryKey(_T("应用程序向导生成的本地应用程序"));
 
 	CCrashReportDlg dlg;
+	dlg.InitDialog( "LUA:test.lua", "C++ Exception\r\n\r\nExpr:      [string \"-------------------------------------------...\"]:137: attempt to call global `SrcSer' (a nil value)", "D:\\TLBB\\Bin\\System.cfg" ) ;
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)

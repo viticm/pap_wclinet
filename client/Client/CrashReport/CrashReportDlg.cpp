@@ -54,6 +54,8 @@ CCrashReportDlg::CCrashReportDlg(CWnd* pParent /*=NULL*/)
 void CCrashReportDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_FIX_SUGGESTION, m_fix_suggestion);
+	DDX_Control(pDX, ID_FULL_INFO, m_full_info);
 }
 
 BEGIN_MESSAGE_MAP(CCrashReportDlg, CDialog)
@@ -62,6 +64,7 @@ BEGIN_MESSAGE_MAP(CCrashReportDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	//}}AFX_MSG_MAP
 	ON_EN_CHANGE(IDC_DUMP_INFO, &CCrashReportDlg::OnEnChangeDumpInfo)
+	ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
 
@@ -94,8 +97,28 @@ BOOL CCrashReportDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// 设置大图标
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
+	
 	// TODO: 在此添加额外的初始化代码
 	
+	COLORREF blue_color = RGB( 0, 0, 238 ) ;
+
+	// 修复建议
+	m_fix_suggestion.SetURL( "#" ) ;
+	m_fix_suggestion.SetUnderline( CHyperLink::ulAlways ) ;
+	m_fix_suggestion.SetColours( -1, blue_color, blue_color ) ;
+	m_fix_suggestion.SetTipText( "我们建议下次启动游戏时使用\"系统修复\"功能修复可能被损坏的资源文件" ) ;
+	m_fix_suggestion.SetTipDelayTime( 0 ) ;
+	m_fix_suggestion.SetTipMaxWidth( 200 ) ;
+
+	// 查看详细信息（崩溃）
+	m_full_info.SetURL( m_dump_file_path ) ;
+    m_full_info.SetUnderline( CHyperLink::ulAlways ) ;
+    m_full_info.SetColours( -1, blue_color, blue_color ) ;
+	m_full_info.SetTipText( "" ) ; //不要提示
+
+	SetDlgItemText( IDC_DUMP_INFO, m_dump_info) ;
+	SetDlgItemText( IDC_FILE_TITLE, m_file_title ) ;
+
 	return TRUE;  // 除非设置了控件的焦点，否则返回 TRUE
 }
 
@@ -156,4 +179,25 @@ void CCrashReportDlg::OnEnChangeDumpInfo()
 	// with the ENM_CHANGE flag ORed into the mask.
 
 	// TODO:  Add your control notification handler code here
+}
+
+void CCrashReportDlg::InitDialog( CString file_name, CString dump_info, CString dump_file_path )
+{
+    m_file_title = file_name ;
+	m_dump_info = dump_info ;
+	m_dump_file_path = dump_file_path ;
+}
+
+HBRUSH CCrashReportDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
+{
+	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
+
+	// TODO:  Change any attributes of the DC here
+    if ( ID_DEBUG == pWnd->GetDlgCtrlID() )
+	{
+		pDC->SetTextColor( RGB( 172, 168, 153 ) );      //字体颜色
+		//pDC->SetBkColor(RGB(0, 0, 255));       //字体背景色 
+	}
+	// TODO:  Return a different brush if the default is not desired
+	return hbr;
 }

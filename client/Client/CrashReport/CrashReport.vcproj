@@ -203,6 +203,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\HyperLink.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\stdafx.cpp"
 				>
 				<FileConfiguration
@@ -245,7 +249,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\HyperLink.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Resource.h"
+				>
+			</File>
+			<File
+				RelativePath=".\resource.hm"
 				>
 			</File>
 			<File
