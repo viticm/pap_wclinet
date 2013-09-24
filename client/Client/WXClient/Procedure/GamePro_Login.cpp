@@ -953,14 +953,14 @@ int CGamePro_Login::SendClConnectMsg()
 // 检查用户名和密码.
 int CGamePro_Login::CheckAccount(CHAR* szUserName, CHAR* szPassword)
 {
-	if(NULL == szUserName)
+	if ( NULL == szUserName || 0 == strcmp( "", szUserName ) )
 	{
 		// 通知界面显示系统提示信息, 用户名错误
 		CGameProcedure::s_pEventSystem->PushEvent( GE_GAMELOGIN_SHOW_SYSTEM_INFO, "输入用户名错误");
 		return 0;
 	}
 
-	if(NULL == szPassword)
+	if ( NULL == szPassword || 0 == strcmp( "", szPassword ) )
 	{
 		// 通知界面显示系统提示信息, 用户名错误
 		CGameProcedure::s_pEventSystem->PushEvent( GE_GAMELOGIN_SHOW_SYSTEM_INFO, "输入密码错误");

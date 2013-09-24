@@ -52,12 +52,16 @@ VOID tThrowAssertException(LPCTSTR szFileName, INT nFileLine, LPCTSTR pExpr)
 
 //--------------------------------------------------
 //分析SEH数据
-VOID tProcessException(PEXCEPTION_POINTERS pException, bool bRunCrashReport) throw()
+VOID tProcessException(PEXCEPTION_POINTERS pException, bool bRunCrashReport, char* szFileTitle ) throw()
 {
 	//保存最后的错误代码
 	UINT	dwLastError = ::GetLastError();
 	if(!pException) return;
-
+    EXCEPTION_RECORD &	E = *pException->ExceptionRecord;
+	const STRING* pCPPException = ( const STRING* )E.ExceptionInformation[ 0 ] ;
+	CHAR szExceptionInfo[ 1024 ] = { 0 } ;
+	if( !pCPPException ) return ;
+    _sntprintf( szExceptionInfo, 1024, "C++ Exception\n\nExpr:      %s\n", pCPPException->c_str() ) ;
 	//生成基本描述文件
 	TCHAR szSmallInfoFile[MAX_PATH] = {0};
 	if(!CreateSmallDumpInfo(pException, szSmallInfoFile, dwLastError))
@@ -85,9 +89,9 @@ VOID tProcessException(PEXCEPTION_POINTERS pException, bool bRunCrashReport) thr
 		::PathAppend(szCrashReportFile, _T("CrashReport.exe"));
 
 		TCHAR szCmdLine[1024] = {0};
-		_sntprintf(szCmdLine, 1024, _T("%s \"%s\" \"%s\" \"%s\""), 
+		_sntprintf(szCmdLine, 1024, _T("%s \"%s\" \"%s\" \"%s\" \"%s\" \"%s\""), 
 			szCrashReportFile, 
-			szSmallInfoFile, szBigInfoFile, szDumpFile);
+			szSmallInfoFile, szBigInfoFile, szDumpFile, szFileTitle, zsExceptionInfo ) ;
 
 		//启动CrashReport
 		STARTUPINFO si;

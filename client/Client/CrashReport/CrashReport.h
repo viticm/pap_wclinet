@@ -31,3 +31,4 @@ private:
 };
 
 extern CCrashReportApp theApp;
+char* replace( char*src, char*sub, char*dst ) ;

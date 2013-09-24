@@ -4,6 +4,7 @@
 	Version="9.00"
 	Name="WXEngine"
 	ProjectGUID="{A1B4BF17-94BC-4AF8-8160-BF4D1D2BE963}"
+	RootNamespace="WXEngine"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>
@@ -291,10 +292,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Exception\TDException.cpp"
-				>
-			</File>
-			<File
 				RelativePath="..\Common\TDException.h"
 				>
 			</File>
@@ -365,6 +362,10 @@
 			<Filter
 				Name="Interface"
 				>
+				<File
+					RelativePath=".\Exception\TDException.cpp"
+					>
+				</File>
 				<File
 					RelativePath=".\Game\Interface\TDGameInterface.cpp"
 					>

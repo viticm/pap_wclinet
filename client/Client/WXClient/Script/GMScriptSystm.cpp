@@ -93,7 +93,7 @@ void CScriptEnvironment::DoString_WithGenException(LPCTSTR szString)
 	{
 		DoString_WithCPPException(szString);
 	}
-	__except (tProcessInnerException(GetExceptionInformation(), g_hMainWnd, szTitle), EXCEPTION_EXECUTE_HANDLER) {}
+	__except (tProcessException( GetExceptionInformation(), true, szTitle ), EXCEPTION_EXECUTE_HANDLER) {}
 }
 
 VOID CScriptEnvironment::DoString(LPCTSTR szString)

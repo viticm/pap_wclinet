@@ -13,7 +13,7 @@
 
 //---------------------------------------------------------
 //分析SEH异常
-VOID tProcessException(PEXCEPTION_POINTERS pException, bool bRunCrashReport);
+VOID tProcessException(PEXCEPTION_POINTERS pException, bool bRunCrashReport, char* szFileTitle = "can't find file" );
 
 //---------------------------------------------------------
 // 异常应用

@@ -463,7 +463,6 @@ BOOL CreateSmallDumpInfo(PEXCEPTION_POINTERS pException, PTCHAR szSmallFile, UIN
 	::GetShortPathName(szTempFile, szSmallFile, MAX_PATH);
 	if(szSmallFile[0] == 0) return FALSE;
 
-	return FALSE;
 	return TRUE;
 }
 

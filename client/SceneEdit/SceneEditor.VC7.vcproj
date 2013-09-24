@@ -124,7 +124,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories=".\src;..\Client\WXCore;..\OGRE\OgreMain\include;..\boost;..\wxWidgets;..\wxDockIt;..\wxPropGrid"
+				AdditionalIncludeDirectories=".\src;..\Client\WXCore;..\OGRE\OgreMain\include;..\boost;..\wxWidgets;..\wxDockIt;..\wxPropGrid;..\..\Common\DataBase"
 				PreprocessorDefinitions="NDEBUG;wxUSE_INTL"
 				RuntimeLibrary="2"
 				BufferSecurityCheck="false"
@@ -148,9 +148,9 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="wxWidgets.lib wxDockIt.lib wxPropGrid.lib comctl32.lib Main.lib WXCore.lib WXEditor.lib SndShell.lib tinyxml.lib Xerces-c_2.lib Opcode.lib expat.lib"
+				AdditionalDependencies="wxWidgets.lib wxDockItu.lib wxPropGrid.lib comctl32.lib OgreMain.lib WXCore.lib WXEditor.lib SndShell.lib tinyxml.lib Xerces-c_2.lib Opcode.lib expat.lib"
 				OutputFile="../_Scripts/VC7.1/Release/$(ProjectName).exe"
-				AdditionalLibraryDirectories="..\wxWidgets\build_msvc7.1\Release;..\wxDockIt\build_msvc7.1\Release;..\wxPropGrid\build_msvc7.1\Release;..\_Scripts\VC7.1\Release;..\wxWidgets\lib\vc_lib"
+				AdditionalLibraryDirectories="..\wxWidgets\build_msvc7.1\Release;..\wxDockIt\build_msvc7.1\Unicode;..\wxPropGrid\build_msvc7.1\Release;..\_Scripts\VC7.1\Release;..\wxWidgets\lib\vc_lib"
 				DelayLoadDLLs=""
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="../_Scripts/VC7.1/Release/$(ProjectName).pdb"
@@ -880,11 +880,11 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;wdr"
 			>
 			<File
-				RelativePath=".\src\ui\res\game.ico"
+				RelativePath=".\game.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\game.ico"
+				RelativePath=".\src\ui\res\game.ico"
 				>
 			</File>
 			<File
@@ -932,11 +932,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\ui\res\small.ico"
+				RelativePath=".\small.ico"
 				>
 			</File>
 			<File
-				RelativePath=".\small.ico"
+				RelativePath=".\src\ui\res\small.ico"
 				>
 			</File>
 			<File
