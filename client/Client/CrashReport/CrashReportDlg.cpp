@@ -54,9 +54,9 @@ CCrashReportDlg::CCrashReportDlg(CWnd* pParent /*=NULL*/)
 void CCrashReportDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_FIX_SUGGESTION, m_fix_suggestion);
-	DDX_Control(pDX, ID_FULL_INFO, m_full_info);
-	DDX_Control(pDX, ID_DEBUG, m_win_debug);
+	DDX_Control(pDX, IDC_FIX_SUGGESTION, m_clFixSuggestion);
+	DDX_Control(pDX, ID_FULL_INFO, m_clFullInfo);
+	DDX_Control(pDX, ID_DEBUG, m_clWinDebug);
 }
 
 BEGIN_MESSAGE_MAP(CCrashReportDlg, CDialog)
@@ -66,6 +66,7 @@ BEGIN_MESSAGE_MAP(CCrashReportDlg, CDialog)
 	//}}AFX_MSG_MAP
 	ON_EN_CHANGE(IDC_DUMP_INFO, &CCrashReportDlg::OnEnChangeDumpInfo)
 	ON_WM_CTLCOLOR()
+	ON_EN_CHANGE(IDC_APPEND_INFO, &CCrashReportDlg::OnEnChangeAppendInfo)
 END_MESSAGE_MAP()
 
 
@@ -104,23 +105,39 @@ BOOL CCrashReportDlg::OnInitDialog()
 	COLORREF blue_color = RGB( 0, 0, 238 ) ;
 
 	// 修复建议
-	m_fix_suggestion.SetURL( "#" ) ;
-	m_fix_suggestion.SetUnderline( CHyperLink::ulAlways ) ;
-	m_fix_suggestion.SetColours( -1, blue_color, blue_color ) ;
-	m_fix_suggestion.SetTipText( "我们建议下次启动游戏时使用\"系统修复\"功能修复可能被损坏的资源文件" ) ;
-	m_fix_suggestion.SetTipDelayTime( 0 ) ;
-	m_fix_suggestion.SetTipMaxWidth( 200 ) ;
+	m_clFixSuggestion.SetURL( "#" ) ; //不要链接
+	m_clFixSuggestion.SetUnderline( CHyperLink::ulAlways ) ;
+	m_clFixSuggestion.SetColours( -1, blue_color, blue_color ) ;
+	m_clFixSuggestion.SetTipText( "我们建议下次启动游戏时使用\"系统修复\"功能修复可能被损坏的资源文件" ) ;
+	m_clFixSuggestion.SetTipDelayTime( 0 ) ;
+	m_clFixSuggestion.SetTipMaxWidth( 200 ) ;
 
 	// 查看详细信息（崩溃）
-	m_full_info.SetURL( m_dump_file_path ) ;
-    m_full_info.SetUnderline( CHyperLink::ulAlways ) ;
-    m_full_info.SetColours( -1, blue_color, blue_color ) ;
-	m_full_info.SetTipText( "" ) ; //不要提示
+	m_clFullInfo.SetURL( m_strDumpFilePath ) ;
+    m_clFullInfo.SetUnderline( CHyperLink::ulAlways ) ;
+    m_clFullInfo.SetColours( -1, blue_color, blue_color ) ;
+	m_clFullInfo.SetTipText( "" ) ; //不要提示
 
-	SetDlgItemText( IDC_DUMP_INFO, m_dump_info) ;
-	SetDlgItemText( IDC_FILE_TITLE, m_file_title ) ;
+	SetDlgItemText( IDC_DUMP_INFO, m_strDumpInfo) ;
+	SetDlgItemText( IDC_FILE_TITLE, m_strFileTitle ) ;
     
-	if ( !m_debug ) GetDlgItem( ID_DEBUG )->EnableWindow( FALSE ) ;
+	if ( !m_bDebug ) GetDlgItem( ID_DEBUG )->EnableWindow( FALSE ) ;
+
+	
+	// 看来这个东东还真不好使
+	RECT rect ;
+	rect.left = 35 ;
+	rect.top = 230 ;
+	rect.right = 336 ;
+	rect.bottom = 13 ;
+	m_hOtherMoreTipWnd = CreateWindowEx( 0, "Static", "为了更快的解决您的问题，请你留下您的E-Mail或其他联系方式", WS_VISIBLE | WS_CHILD | WS_TABSTOP | SS_NOTIFY , 
+		rect.left, rect.top, rect.right, rect.bottom, this->m_hWnd, NULL, GetModuleHandle( NULL ), NULL ) ;
+
+	CWnd* pOtherMoreTipWnd = CWnd::FromHandle( m_hOtherMoreTipWnd ) ;
+    CFont* pFont = GetFont() ; // 使用同样的字体
+	pOtherMoreTipWnd->SetFont( pFont ) ;
+
+	//::ShowWindow( m_hOtherMoreTipWnd, SW_HIDE ) ;
 
 	return TRUE;  // 除非设置了控件的焦点，否则返回 TRUE
 }
@@ -165,6 +182,8 @@ void CCrashReportDlg::OnPaint()
 	{
 		CDialog::OnPaint();
 	}
+	
+	CHARFORMAT charformat;
 }
 
 //当用户拖动最小化窗口时系统调用此函数取得光标显示。
@@ -184,12 +203,12 @@ void CCrashReportDlg::OnEnChangeDumpInfo()
 	// TODO:  Add your control notification handler code here
 }
 
-void CCrashReportDlg::InitDialog( CString file_name, CString dump_info, CString dump_file_path, bool debug )
+void CCrashReportDlg::InitDialog( CString strFileName, CString strDumpInfo, CString strDumpFilePath, bool bDebug )
 {
-    m_file_title = file_name ;
-	m_dump_info = dump_info ;
-	m_dump_file_path = dump_file_path ;
-	m_debug = debug ;
+    m_strFileTitle = strFileName ;
+	m_strDumpInfo = strDumpInfo ;
+	m_strDumpFilePath = strDumpFilePath ;
+	m_bDebug = bDebug ;
 }
 
 HBRUSH CCrashReportDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
@@ -202,6 +221,33 @@ HBRUSH CCrashReportDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 		//pDC->SetTextColor( RGB( 172, 168, 153 ) );      //字体颜色
 		//pDC->SetBkColor(RGB(0, 0, 255));       //字体背景色 
 	}
+	CWnd* pOtherMoreTipWnd = CWnd::FromHandle( m_hOtherMoreTipWnd ) ;
+	if ( pOtherMoreTipWnd->GetDlgCtrlID() == pWnd->GetDlgCtrlID() )
+	{
+		pDC->SetTextColor( RGB( 172, 168, 153 ) );
+		pDC->SetBkColor( RGB( 255, 255, 255 ) ) ; 
+	}
 	// TODO:  Return a different brush if the default is not desired
 	return hbr;
+}
+
+void CCrashReportDlg::OnEnChangeAppendInfo()
+{
+	// TODO:  If this is a RICHEDIT control, the control will not
+	// send this notification unless you override the CDialog::OnInitDialog()
+	// function and call CRichEditCtrl().SetEventMask()
+	// with the ENM_CHANGE flag ORed into the mask.
+
+	// TODO:  Add your control notification handler code here
+
+	CString strAppendInfo;
+	GetDlgItemText( IDC_APPEND_INFO, strAppendInfo ) ;
+    if ( 0 == strcmp( "", strAppendInfo ) )
+	{
+		::ShowWindow( m_hOtherMoreTipWnd, SW_SHOW ) ;
+	}
+	else
+	{
+		::ShowWindow( m_hOtherMoreTipWnd, SW_HIDE ) ;
+	}
 }

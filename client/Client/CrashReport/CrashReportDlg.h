@@ -32,16 +32,20 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnEnChangeDumpInfo();
-	HWND CreateSysLink( HWND hDlg, HINSTANCE hInst, RECT rect ) ;
+	HWND CreateOtherMoreTip( HWND hDlg, HINSTANCE hInst, RECT rect ) ;
 	afx_msg void OnNMClickFixSuggestion(NMHDR *pNMHDR, LRESULT *pResult);
-	void InitDialog( CString file_name, CString dump_info, CString dump_file_path, bool debug ) ;
+	void InitDialog( CString strFileName, CString strDumpInfo, CString strDumpFilePath, bool bDebug ) ;
 	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+
 protected:
-	CHyperLink m_win_debug;
-	CHyperLink m_fix_suggestion;
-	CHyperLink m_full_info;
-    CString m_file_title ; 
-	CString m_dump_info ; 
-	CString m_dump_file_path ;
-	bool m_debug;
+	CHyperLink m_clWinDebug;
+	CHyperLink m_clFixSuggestion;
+	CHyperLink m_clFullInfo;
+    CString m_strFileTitle ; 
+	CString m_strDumpInfo ; 
+	CString m_strDumpFilePath ;
+	HWND m_hOtherMoreTipWnd ;
+	bool m_bDebug;
+public:
+	afx_msg void OnEnChangeAppendInfo();
 };
