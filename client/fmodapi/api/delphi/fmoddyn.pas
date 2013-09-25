@@ -3,19 +3,19 @@
 { =========================================================================================== }
 {
   NOTE: For the demos to run you must have either fmod.dll (in Windows)
-  or libfmod-3.74.so (in Linux) installed.
+  or libfmod-3.75.so (in Linux) installed.
 
   In Windows, copy the fmod.dll file found in the api directory to either of
   the following locations (in order of preference)
   - your application directory
   - Windows\System (95/98) or WinNT\System32 (NT/2000/XP)
 
-  In Linux, make sure you are signed in as root and copy the libfmod-3.74.so
+  In Linux, make sure you are signed in as root and copy the libfmod-3.75.so
   file from the api directory to your /usr/lib/ directory.
   Then via a command line, navigate to the /usr/lib/ directory and create
-  a symbolic link between libfmod-3.74.so and libfmod.so. This is done with
+  a symbolic link between libfmod-3.75.so and libfmod.so. This is done with
   the following command (assuming you are in /usr/lib/)...
-  ln -s libfmod-3.74.so libfmod.so.
+  ln -s libfmod-3.75.so libfmod.so.
 }
 { =============================================================================================== }
 
@@ -127,6 +127,7 @@ var
   FSOUND_GetOutputRate: function: Integer; {$IFDEF LINUX} cdecl {$ELSE} stdcall {$ENDIF};
   FSOUND_GetMaxChannels: function: Integer; {$IFDEF LINUX} cdecl {$ELSE} stdcall {$ENDIF};
   FSOUND_GetMaxSamples: function: Integer; {$IFDEF LINUX} cdecl {$ELSE} stdcall {$ENDIF};
+  FSOUND_GetSpeakerMode: function: Integer; {$IFDEF LINUX} cdecl {$ELSE} stdcall {$ENDIF};
   FSOUND_GetSFXMasterVolume: function: Integer; {$IFDEF LINUX} cdecl {$ELSE} stdcall {$ENDIF};
   FSOUND_GetNumHWChannels: function (var Num2D: Integer; var Num3D: Integer; var Total: Integer): ByteBool; {$IFDEF LINUX} cdecl {$ELSE} stdcall {$ENDIF};
   FSOUND_GetChannelsPlaying: function: Integer; {$IFDEF LINUX} cdecl {$ELSE} stdcall {$ENDIF};
@@ -619,6 +620,7 @@ begin
   FSOUND_GetOutputRate                  := GetAddress(FMODHandle, '_FSOUND_GetOutputRate@0');
   FSOUND_GetMaxChannels                 := GetAddress(FMODHandle, '_FSOUND_GetMaxChannels@0');
   FSOUND_GetMaxSamples                  := GetAddress(FMODHandle, '_FSOUND_GetMaxSamples@0');
+  FSOUND_GetSpeakerMode                 := GetAddress(FMODHandle, '_FSOUND_GetSpeakerMode@0');
   FSOUND_GetSFXMasterVolume             := GetAddress(FMODHandle, '_FSOUND_GetSFXMasterVolume@0');
   FSOUND_GetNumHWChannels               := GetAddress(FMODHandle, '_FSOUND_GetNumHWChannels@12');
   FSOUND_GetChannelsPlaying             := GetAddress(FMODHandle, '_FSOUND_GetChannelsPlaying@0');

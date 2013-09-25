@@ -5,7 +5,7 @@ Option Explicit
 'FMOD VB6 Module
 '
 
-Public Const FMOD_VERSION = 3.74
+Public Const FMOD_VERSION = 3.75
 
 '************
 '* Enums
@@ -60,6 +60,7 @@ Public Enum FSOUND_OUTPUTTYPES
     FSOUND_OUTPUT_PS2       ' PlayStation 2 driver
     FSOUND_OUTPUT_MAC       ' Mac SoundMager driver
     FSOUND_OUTPUT_GC        ' Gamecube driver
+    FSOUND_OUTPUT_PSP		' PlayStation Portable driver
 
     FSOUND_OUTPUT_NOSOUND_NONREALTIME  ' This is the same as nosound, but the sound generation is driven by FSOUND_Update
 End Enum
@@ -176,6 +177,7 @@ Public Enum FSOUND_MODES
     FSOUND_USECORE0 = &H8000000       ' For PS2 only - Sample/Stream is forced to use hardware voices 00-23
     FSOUND_USECORE1 = &H10000000      ' For PS2 only - Sample/Stream is forced to use hardware voices 24-47
     FSOUND_LOADMEMORYIOP = &H20000000 ' For PS2 only - "name" will be interpreted as a pointer to data for streaming and samples.  The address provided will be an IOP address
+	FSOUND_IGNORETAGS = &H40000000    ' Skips id3v2 etc tag checks when opening a stream, to reduce seek/read overhead when opening files (helps with CD performance)
     FSOUND_STREAM_NET = &H80000000    ' Specifies an internet stream
     
     FSOUND_NORMAL = FSOUND_16BITS Or FSOUND_SIGNED Or FSOUND_MONO
@@ -348,6 +350,12 @@ Public Enum FSOUND_INITMODES
     FSOUND_INIT_DONTLATENCYADJUST = &H80        'Callbacks are not latency adjusted, and are called at mix time.  Also information functions are immediate
     FSOUND_INIT_GC_INITLIBS = &H100             'Gamecube only - Initializes GC audio libraries
     FSOUND_INIT_STREAM_FROM_MAIN_THREAD = &H200 'Turns off fmod streamer thread, and makes streaming update from FSOUND_Update called by the user
+    FSOUND_INIT_PS2_USEVOLUMERAMPING = &H400    'PS2 only   - Turns on volume ramping system to remove hardware clicks.
+    FSOUND_INIT_DSOUND_DEFERRED = &H800         'Win32 only - For DirectSound output.  3D commands are batched together and executed at FSOUND_Update.
+    FSOUND_INIT_DSOUND_HRTF_LIGHT = &H1000      'Win32 only - For DirectSound output.  FSOUND_HW3D buffers use a slightly higher quality algorithm when 3d hardware acceleration is not present.
+    FSOUND_INIT_DSOUND_HRTF_FULL = &H2000       'Win32 only - For DirectSound output.  FSOUND_HW3D buffers use full quality 3d playback when 3d hardware acceleration is not present.
+    FSOUND_INIT_XBOX_REMOVEHEADROOM = &H4000    'XBox only - By default directsound attenuates all sound by 6db to avoid clipping/distortion.  CAUTION.  If you use this flag you are responsible for the final mix to make sure clipping / distortion doesn't happen.
+    FSOUND_INIT_PSP_SILENCEONUNDERRUN = &H8000  'PSP only - If streams skip / stutter when device is powered on, either increase stream buffersize, or use this flag instead to play silence while the UMD is recovering.
 End Enum
 
 
@@ -456,6 +464,7 @@ Public Declare Function FSOUND_GetDriverCaps Lib "fmod.dll" Alias "_FSOUND_GetDr
 Public Declare Function FSOUND_GetOutputRate Lib "fmod.dll" Alias "_FSOUND_GetOutputRate@0" () As Long
 Public Declare Function FSOUND_GetMaxChannels Lib "fmod.dll" Alias "_FSOUND_GetMaxChannels@0" () As Long
 Public Declare Function FSOUND_GetMaxSamples Lib "fmod.dll" Alias "_FSOUND_GetMaxSamples@0" () As Long
+Public Declare Function FSOUND_GetSpeakerMode Lib "fmod.dll" Alias "_FSOUND_GetSpeakerMode@0" () As Long
 Public Declare Function FSOUND_GetSFXMasterVolume Lib "fmod.dll" Alias "_FSOUND_GetSFXMasterVolume@0" () As Long
 Public Declare Function FSOUND_GetNumHWChannels Lib "fmod.dll" Alias "_FSOUND_GetNumHWChannels@12" (ByRef num2d As Long, ByRef num3d As Long, ByRef total As Long)
 Public Declare Function FSOUND_GetChannelsPlaying Lib "fmod.dll" Alias "_FSOUND_GetChannelsPlaying@0" () As Long
@@ -563,8 +572,10 @@ Public Declare Function FSOUND_3D_GetMinMaxDistance Lib "fmod.dll" Alias "_FSOUN
 '/* Global 3D sound functions. */
 '/* ========================== */
 
+'
 '    See also 3d sample and channel based functions above.
 '    Call FSOUND_Update once a frame to process 3d information.
+'
 
 Public Declare Function FSOUND_3D_Listener_SetCurrent Lib "fmod.dll" Alias "_FSOUND_3D_Listener_SetCurrent@8" (ByVal current As Long) As Long
 Public Declare Function FSOUND_3D_Listener_SetAttributes Lib "fmod.dll" Alias "_FSOUND_3D_Listener_SetAttributes@32" (ByVal Pos As Single, ByVal vel As Single, ByVal fx As Single, ByVal fy As Single, ByVal fz As Single, ByVal tx As Single, ByVal ty As Single, ByVal tz As Single) As Long
@@ -777,7 +788,6 @@ Public Declare Function FMUSIC_LoadSong Lib "fmod.dll" Alias "_FMUSIC_LoadSong@4
 Public Declare Function FMUSIC_LoadSongEx Lib "fmod.dll" Alias "_FMUSIC_LoadSongEx@24" (ByVal name As String, ByVal offset As Long, ByVal length As Long, ByVal mode As FSOUND_MODES, ByRef sentencelist As Long, ByVal numitems As Long) As Long
 Public Declare Function FMUSIC_LoadSongEx2 Lib "fmod.dll" Alias "_FMUSIC_LoadSongEx@24" (ByRef data As Byte, ByVal offset As Long, ByVal length As Long, ByVal mode As FSOUND_MODES, ByRef sentencelist As Long, ByVal numitems As Long) As Long
 Public Declare Function FMUSIC_GetOpenState Lib "fmod.dll" Alias "_FMUSIC_GetOpenState@4" (ByVal module As Long) As Long
-
 Public Declare Function FMUSIC_FreeSong Lib "fmod.dll" Alias "_FMUSIC_FreeSong@4" (ByVal module As Long) As Byte
 Public Declare Function FMUSIC_PlaySong Lib "fmod.dll" Alias "_FMUSIC_PlaySong@4" (ByVal module As Long) As Byte
 Public Declare Function FMUSIC_StopSong Lib "fmod.dll" Alias "_FMUSIC_StopSong@4" (ByVal module As Long) As Byte

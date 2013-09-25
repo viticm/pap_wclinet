@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------
-                                 FMOD 3.73
+                                 FMOD 3.75
               Copyright (c) Firelight Technologies Pty, Ltd,    
                                 1994 - 2004
 ----------------------------------------------------------------------------
@@ -13,14 +13,14 @@ WIN32 specific issues.
 
 Remember to use the correct import library!
 
-MSVC Users                   - use FMODVC.LIB
-METROWERKS/CODEWARRIOR Users - use FMODVC.LIB
-WATCOM Users                 - use FMODWC.LIB
-BORLAND Users                - use FMODBC.LIB
-LCC-WIN32 Users              - use FMODLCC.LIB
-MINGW AND CYGWIN Users       - use LIBFMOD.A
+MSVC Users                      - use FMODVC.LIB
+METROWERKS/CODEWARRIOR Users    - use FMODVC.LIB
+WATCOM Users                    - use FMODWC.LIB
+BORLAND Users                   - use FMODBC.LIB
+LCC-WIN32 Users                 - use FMODLCC.LIB
+DEV-C++, MINGW AND CYGWIN Users - use LIBFMOD.A
 
-Linux users        - link with libfmod-3.73.so (i.e. gcc file.c -lfmod-3.73)
+Linux users        - link with libfmod-3.75.so (i.e. gcc file.c -lfmod-3.75)
 Delphi Users       - use FMOD.PAS
 Visual Basic Users - use FMOD.BAS
 

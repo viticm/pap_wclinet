@@ -1,12 +1,83 @@
 
 ======================================================================================
-REVISION HISTORY : FireMOD : Copyright (c) Firelight Technologies, Pty, Ltd, 1994-2004
+REVISION HISTORY : FireMOD : Copyright (c) Firelight Technologies, Pty, Ltd, 1994-2005
                                  http://www.fmod.org
 ======================================================================================
 	      + Added feature or noticable improvement
 	      - Bug fix or something removed
 	      * Changed or Information
 ======================================================================================
+ 
+15/12/05 3.75
+------------
+
++ PSP    - Added PSP support! Contact sales@fmod.org for evaluation versions!
++ XBOX   - Added FSOUND_INIT_XBOX_REMOVEHEADROOM for 2D sounds to disable the xbox 
+           directsound 6db attenuation on all voices (to avoid clipping).
+
+- ALL    - Fixed rare timing crash, mainly on HyperThreaded or Multi-Processor 
+           machines, when calling FSOUND_Stream_SetPosition or FSOUND_Stream_Play.
+- ALL    - Sounds not starting paused properly issue fixed.
+- ALL    - Stability increase calling stream related commands from a sync callback.
+- ALL    - IMA ADPCM compressed multichannel FSB files with channel count = 2
+           played as static fixed.
+- ALL    - Removed any references to ctype.h so linux has an easier time linking 
+           on old glibc versions.
+- ALL    - .IT format - Pitch envelope under 'amiga frequencies' issue fixed.
+- ALL    - .IT format - Pan envelope not panning left issue fixed.
+- ALL    - .IT format - some songs with extremely high pitch notes were being
+           clamped by fmod's internal setfrequency function, so that has been
+           fixed.
+- ALL    - Fixed stream not opening with FSOUND_NONBLOCKING if 
+           FSOUND_OUTPUT_NOSOUND_NONREALTIME was the output mode.
+- ALL    - Fixed rare stream crash if FSOUND_NONBLOCKING was used and ran out 
+           of memory.
+- ALL    - Fixed ogg vorbis seeking causing odd audible playback for a few ms.
+- ALL    - Removed stall on FSOUND_Stream_SetSubStream or 
+           FSOUND_Stream_SetSubStreamSentence if other streams were playing 
+           simultaneously.
+- ALL    - Fixed FSOUND_SetMute not taking FSOUND_SetVolumeAbsolute into account
+           when unmuting.
+- ALL    - Fixed recording returning an error if fmod was closed then reinitialized
+- ALL    - Fixed rare failures in FSOUND_Sample_Load if a stream was openened
+           beforehand.
+- LINUX  - More OSS and ALSA compatibility fixes, should handle most cards without
+           a problem now.
+- LINUX  - Fixed lock on cd device after FSOUND_Close was called so tray wouldnt 
+           eject.
+- LINUX  - ALSA output now cooperates with other applications better.
+- WIN32/
+  WIN64/
+  WINCE  - Fixed thread leak if recording was started and stopped.
+- WINCE  - Fixed last few milliseconds of mp3 files not playing.
+- WINCE  - Fixed new streams not being able to be started if memory card or 
+           removable media was removed during playback.
+- WINCE  - Fixed memory leak.
+- PS2    - Mute wasn't muting hardware voices properly.
+- PS2    - Free up streams in FSOUND_Close to avoid hang.
+- PS2    - Fixed memory leak when using FSOUND_NONBLOCKING and sample list feature
+           in FMUSIC_LoadSongEx.
+- PS2    - Removed rare chance of buzzing noise if FSOUND_SetSpeakerMode was set
+           and FSOUND_Init had 0 software channels specified.
+- PS2    - Fixed FSOUND_STEREOPAN coming out in right speaker with mono sounds.
+- PS2    - Unblocked FSOUND_Stream_SetEndCallback from possibly causing a stall.
+- MAC    - Fixed critical section issues on OS9.
+- XBOX   - Fixed loop point clicking on PCM based hardware sounds.
+- FSBANK - Fixed command line version not returning correct error code to dos.
+           Also stopped messagebox popping up when -h was specified.
+
+* WIN32  - CDDA streams now return -3 from FSOUND_Stream_GetOpenState when cd is 
+           ejected.
+* PS2    - FSOUND_IsDiskBusy now accepts a parameter to determine if a stream is
+           in the middle of a close (because stream close can cause blocking in 
+           other functions if they are called while a stream is closing)
+
+11/11/04 3.741 (Mac only)
+-------------------------
+
+- MAC	 - Fixed problems with playing Ogg Vorbis files.
+- MAC    - Fixed threading issues which was causing problems in mac classic.
+- MAC    - Added "Classic" target to all examples.
 
 18/10/04 3.74
 -------------

@@ -1,7 +1,7 @@
 
                         --------------------------------
                         FMOD Sample Bank/Stream Compiler
-                                      v1.24
+                                      v1.27
                    Copyright Firelight Technologies 2002-2004.
                         --------------------------------
 
