@@ -47,7 +47,7 @@ CSoundSystemFMod::CSoundSystemFMod()
 	m_fMasterGain = 1.0f;
 	m_vListenerPos = fVector3(0.0f, 0.0f, 0.0f);
 
-	m_strSoundPath = "..\\Sound\\";
+	m_strSoundPath = "..\\Data\\Sound\\";
 
 	m_pMetaTable = 0;
 }

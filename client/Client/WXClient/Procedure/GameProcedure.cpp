@@ -145,6 +145,8 @@ bool					CGameProcedure::m_bNeedFreshMinimap		= false;
 
 VOID CGameProcedure::InitStaticMemeber(VOID)
 {
+	FILE* fp = fopen( ".\\client.log", "w+" ) ;
+	fclose( fp ) ;
 	TDU_Log( "PAP System Init( Build at %s %s )", __DATE__, __TIME__ ) ;
 	//-------------------------------------------------------------------
 	//初始化随即变量种子
@@ -292,7 +294,7 @@ VOID CGameProcedure::InitStaticMemeber(VOID)
 	if(s_pDebuger)		s_pDebuger->Initial(NULL); 
 	if(s_pUISystem)		s_pUISystem->Initial(NULL);
 	s_pInputSystem		->Initial(NULL); 
-/*	s_pSoundSystem		->Initial(&g_hMainWnd);*/
+	s_pSoundSystem		->Initial(&g_hMainWnd);
 	s_pDataPool			->Initial(NULL);
 	s_pDataPool_		->Initial(NULL);
 	s_pCursorMng		->Initial(&g_hInstance);
