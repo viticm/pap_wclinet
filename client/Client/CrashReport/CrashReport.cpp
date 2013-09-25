@@ -87,8 +87,11 @@ BOOL CCrashReportApp::InitInstance()
     *pMark8 = 0; _snprintf(g_szExceptionFile, MAX_PATH, "%s", pMark7+1);
 	*pMark10 = 0; _snprintf(g_szExceptionInfo, MAX_PATH, "%s", pMark9+1);
 
-	CString strMyStr( g_szExceptionInfo ) ;
-	strMyStr.Replace( "\\r\\n", "\r\n" ) ;
+	// special string replace
+	CString strExceptionInfo( g_szExceptionInfo ) ;
+	strExceptionInfo.Replace( "\\r\\n", "\\n" ) ;
+	strExceptionInfo.Replace( "\\n", "\r\n" ) ;
+	strExceptionInfo.Replace( "<'>", "\"" ) ;
 
 	// 标准初始化
 	// 如果未使用这些功能并希望减小
@@ -100,7 +103,7 @@ BOOL CCrashReportApp::InitInstance()
 	SetRegistryKey(_T("应用程序向导生成的本地应用程序"));
 
 	CCrashReportDlg dlg;
-	dlg.InitDialog( g_szExceptionFile, strMyStr + "\r\nssssssssss", g_szBigInfoFile, false ) ;
+	dlg.InitDialog( g_szExceptionFile, strExceptionInfo, g_szBigInfoFile, false ) ;
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)

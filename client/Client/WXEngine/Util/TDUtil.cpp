@@ -218,3 +218,20 @@ BOOL TDU_CheckStringValid(const char* pStr)
 	}
 	return TRUE;
 }
+
+/**
+ * string replace function
+ * @param string str need op string
+ * @param string old_str need replace old string
+ * @param string new_str need replace to new string
+ */
+STRING TDU_StrReplace( STRING str, STRING search_str, STRING replace_str )
+{
+	STRING::size_type pos = 0 ;
+	while( ( pos = str.find( search_str, pos ) ) != STRING::npos )
+    {
+        str.replace( pos, search_str.size(), replace_str ) ;
+        pos++ ;
+    }
+    return str ;
+}

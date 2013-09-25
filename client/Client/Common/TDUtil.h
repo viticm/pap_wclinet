@@ -108,3 +108,5 @@ const char* TDU_GetLineFromMemory(char* pStringBuf, int nBufSize, const char* pM
 //TRUE	不含有非法字符
 //FALSE	有非法字符
 BOOL	TDU_CheckStringValid(const char* pStr);
+
+STRING TDU_StrReplace( STRING str, STRING search_str, STRING replace_str ) ;

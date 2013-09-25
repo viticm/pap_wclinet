@@ -3,6 +3,7 @@
 #include "TDException.h"
 #include "TDKernel.h"
 #include "TDCrashReport.h"
+#include "TDUtil.h"
 #include <stdio.h>
 #include "XZip.h"
 #include <shlobj.h>
@@ -61,7 +62,10 @@ VOID tProcessException(PEXCEPTION_POINTERS pException, bool bRunCrashReport, cha
 	const STRING* pCPPException = ( const STRING* )E.ExceptionInformation[ 0 ] ;
 	CHAR szExceptionInfo[ 1024 ] = { 0 } ;
 	if( !pCPPException ) return ;
-    _sntprintf( szExceptionInfo, 1024, "C++ Exception\n\nExpr:      %s\n", pCPPException->c_str() ) ;
+	_sntprintf( szExceptionInfo, 1024, "C++ Exception\n\nExpr:      %s\n", ( TDU_StrReplace( *pCPPException, "\"", "<'>" ) ).c_str() ) ;
+	STRING strExceptionInfo( szExceptionInfo ) ;
+	strExceptionInfo = TDU_StrReplace( strExceptionInfo, "\r", "\\r" ) ;
+    strExceptionInfo = TDU_StrReplace( strExceptionInfo, "\n", "\\n" ) ;
 	//生成基本描述文件
 	TCHAR szSmallInfoFile[MAX_PATH] = {0};
 	if(!CreateSmallDumpInfo(pException, szSmallInfoFile, dwLastError))
@@ -91,7 +95,7 @@ VOID tProcessException(PEXCEPTION_POINTERS pException, bool bRunCrashReport, cha
 		TCHAR szCmdLine[1024] = {0};
 		_sntprintf(szCmdLine, 1024, _T("%s \"%s\" \"%s\" \"%s\" \"%s\" \"%s\""), 
 			szCrashReportFile, 
-			szSmallInfoFile, szBigInfoFile, szDumpFile, szFileTitle, zsExceptionInfo ) ;
+			szSmallInfoFile, szBigInfoFile, szDumpFile, szFileTitle, strExceptionInfo.c_str() ) ;
 
 		//启动CrashReport
 		STARTUPINFO si;
