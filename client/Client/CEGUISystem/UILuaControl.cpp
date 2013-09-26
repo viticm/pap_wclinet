@@ -1757,7 +1757,7 @@ INT ChatHistory::InsertChatString(LuaPlus::LuaState* pState)
 	//´úÂë×ª»¯
 	std::string strMbcs = args[2].GetString();
 	CEGUI::String strUtf32;
-	CUIStringSystem::GetMe()->ParserString_Runtime(strMbcs, strUtf32);
+	CUIStringSystem::GetMe()->ParserString_Runtime(strMbcs, strUtf32, TRUE);
 	((CEGUI::IFalagardChatHistory*)(CEGUI::FalagardChatHistory*)m_pWindow)->insertChatString(strUtf32);
 
 	return 0;

@@ -26,7 +26,7 @@ class CUIStringSystem
 public:
 	//×ª»¯×Ö·û´®
 	VOID				ParserString_Prebuild(const STRING& strSource, STRING& strOut);
-	VOID				ParserString_Runtime(const STRING& strSource, CEGUI::String& strOut);
+	VOID				ParserString_Runtime(const STRING& strSource, CEGUI::String& strOut, BOOL bCheckInFilter = FALSE );
 	STRING				ParserString_VarParam(const STRING& strID, va_list ptr);
 	VOID				ParserString_NoColor(const STRING& strSrc, STRING&strOut, BOOL bControl = FALSE);
 	STRING				ParserString_NoVarParam(const STRING& strID);
@@ -88,7 +88,7 @@ public:
 
 	static CUIStringSystem*	GetMe(VOID) { return s_pMe; }
 private:
-	VOID				ParserString_RuntimeNew(const STRING& strSource, CEGUI::String& strOut);
+	VOID				ParserString_RuntimeNew(const STRING& strSource, CEGUI::String& strOut, BOOL bCheckInFilter = FALSE);
 	VOID				GenerateTalkTemplateTable();
 	VOID				GenerateFullCompareTable();
 protected:

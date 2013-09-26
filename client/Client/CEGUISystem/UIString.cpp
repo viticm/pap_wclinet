@@ -277,10 +277,10 @@ BOOL CUIStringSystem::_CheckStringFullCompare(const STRING& strIn, const STRING&
 
 // 运行时转化
 // 特殊表情符转化，把后面的字符转化成utf32，并且把string也转化成utf32
-VOID CUIStringSystem::ParserString_Runtime(const STRING& strSourceNotCheck, CEGUI::String& strOutUtf32)
+VOID CUIStringSystem::ParserString_Runtime(const STRING& strSourceNotCheck, CEGUI::String& strOutUtf32, BOOL bCheckInFilter)
 {
 
-	return ParserString_RuntimeNew(strSourceNotCheck, strOutUtf32);
+	return ParserString_RuntimeNew(strSourceNotCheck, strOutUtf32, bCheckInFilter);
 
 	const CHAR KeyParserBegin	= '{';
 	const CHAR KeyParserMiddle	= '=';
@@ -396,7 +396,13 @@ VOID CUIStringSystem::ParserString_Runtime(const STRING& strSourceNotCheck, CEGU
 	
 }
 
-VOID CUIStringSystem::ParserString_RuntimeNew(const STRING& strSourceNotCheck, CEGUI::String& strOutUtf32)
+
+/** 
+ * @param STRING& strSourceNotCheck 需要检查的字符串
+ * @param CEGUI::String& strOutUtf32 输出字符串
+ * @param BOOL bCheckInFilter 是否检查禁止的字符串，默认为否，因为系统界面不需要去检查，只有聊天等需要
+ */
+VOID CUIStringSystem::ParserString_RuntimeNew(const STRING& strSourceNotCheck, CEGUI::String& strOutUtf32, BOOL bCheckInFilter)
 {
 	/*
 	#R		表示后面的字体为红色(red)
@@ -434,7 +440,7 @@ VOID CUIStringSystem::ParserString_RuntimeNew(const STRING& strSourceNotCheck, C
 	_CheckStringCode(strSourceNotCheck, strSource);
 
 	//过滤聊天信息中的非法信息
-	if(FALSE == _CheckStringFilter(strSource))
+	if( TRUE == bCheckInFilter && FALSE == _CheckStringFilter(strSource))
 		strSource = "#R请注意你的言辞！！";
 
 	do

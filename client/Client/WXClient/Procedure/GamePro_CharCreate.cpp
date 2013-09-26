@@ -234,7 +234,7 @@ int	CGamePro_CharCreate::CreateRole()
 
 	if(CGameProcedure::s_pUISystem)
 	{
-		if(0)//!CGameProcedure::s_pUISystem->CheckStringFilter(strName)||(!CGameProcedure::s_pUISystem->CheckStringFullCompare(strName)))//LMÐÞ¸Ä
+		if( !CGameProcedure::s_pUISystem->CheckStringFilter(strName)||(!CGameProcedure::s_pUISystem->CheckStringFullCompare(strName)))//LMÐÞ¸Ä
 		{
 			STRING strTemp = "";
 			strTemp = NOCOLORMSGFUNC("ERRORSpecialString");
