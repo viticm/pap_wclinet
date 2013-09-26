@@ -1366,7 +1366,7 @@ INT ListBox::AddItem( LuaPlus::LuaState* pState )
 	CEGUI::ListboxTextItem* pItem = new CEGUI::ListboxTextItem( strUtf32,  nIndex);
 	pItem->setTextColours(colorText);
 	pItem->setSelectionColours(CEGUI::colour(0xFFC8B88E));
-	pItem->setSelectionBrushImage((CEGUI::utf8*)"Common", (CEGUI::utf8*)"HoverTextBak");
+	pItem->setSelectionBrushImage((CEGUI::utf8*)"Button3", (CEGUI::utf8*)"ComboListButton_Hover");
 	if( args[ 5 ].IsInteger() )
 		pItem->setHorzFomate( CEGUI::TextFormatting( args[ 5 ].GetInteger() ) );
 	((CEGUI::Listbox*)m_pWindow)->addItem( pItem );
@@ -1544,7 +1544,7 @@ INT ComboBox::ComboBoxAddItem( LuaPlus::LuaState* pState )
 	CEGUI::ListboxTextItem* pItem = new CEGUI::ListboxTextItem( (CEGUI::String)(CEGUI::utf8*)(strUtf8.c_str()), args[ 3 ].GetInteger() );
 
 	pItem->setSelectionColours(CEGUI::colour(1.0f, 0.0f, 0.0f));
-	pItem->setSelectionBrushImage((CEGUI::utf8*)"Common", (CEGUI::utf8*)"HoverTextBak");
+	pItem->setSelectionBrushImage((CEGUI::utf8*)"Button3", (CEGUI::utf8*)"ComboListButton_Hover");
 	((CEGUI::Combobox*)m_pWindow)->addItem( pItem );
 
 	return 0;
