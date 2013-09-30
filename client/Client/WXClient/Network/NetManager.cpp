@@ -305,25 +305,25 @@ VOID CNetManager::WaitConnecting(VOID)
 		case -1:
 			{
 				SetNetStatus(CONNECT_FAILED_CREATE_SOCKET_ERROR);
-				CGameProcedure::s_pEventSystem->PushEvent(GE_NET_CLOSE, "创建网络连接失败!");
+				CGameProcedure::s_pEventSystem->PushEvent(GE_GAMELOGIN_SHOW_SYSTEM_INFO, "创建网络连接失败!");
 				break;
 			}
 		case -2:
 			{
 				SetNetStatus(CONNECT_FAILED_CONNECT_ERROR);
-				CGameProcedure::s_pEventSystem->PushEvent(GE_NET_CLOSE, "目的服务器可能关闭!");
+				CGameProcedure::s_pEventSystem->PushEvent(GE_GAMELOGIN_SHOW_SYSTEM_INFO, "目的服务器可能关闭!");
 				break;
 			}
 		case -3:
 			{
 				SetNetStatus(CONNECT_FAILED_TIME_OUT);
-				CGameProcedure::s_pEventSystem->PushEvent(GE_NET_CLOSE, "连接超时!");
+				CGameProcedure::s_pEventSystem->PushEvent(GE_GAMELOGIN_SHOW_SYSTEM_INFO, "连接超时!");
 				break;
 			}
 		default:
 			{
 				SetNetStatus(CONNECT_FAILED_CONNECT_ERROR);
-				CGameProcedure::s_pEventSystem->PushEvent(GE_NET_CLOSE, "未知错误!");
+				CGameProcedure::s_pEventSystem->PushEvent(GE_GAMELOGIN_SHOW_SYSTEM_INFO, "未知错误!");
 				break;
 			}
 

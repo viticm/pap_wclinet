@@ -751,7 +751,7 @@ VOID	CRenderSystem::Camera_SetEyePos(const fVector3& fvPos)
 		Ogre::Camera* pOgreCamera = m_pRenderSystem->getCamera();
 
 		pOgreCamera->setPosition(Ogre::Vector3(fvPos.x, fvPos.y, fvPos.z));
-		
+		pOgreCamera->setFOVy(Ogre::Degree(35.0f));
 	}
 }
 

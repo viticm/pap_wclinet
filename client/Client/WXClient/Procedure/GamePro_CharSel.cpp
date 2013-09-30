@@ -129,16 +129,16 @@ VOID CGamePro_CharSel::Init(VOID)
 {
 
 	//return;
-	//s_pGfxSystem->Camera_SetCurrent(tGfxSystem::CHAR_VIEW);
-	//
-	//if(!m_bIsLoadScene)
-	//{
-	//	s_pGfxSystem->Scene_Load(0, "CharacterSelTest.Scene");
-	//	m_bIsLoadScene = true;
-	//}
+	s_pGfxSystem->Camera_SetCurrent(CRenderSystem::CHAR_VIEW);
+	
+	if(!m_bIsLoadScene)
+	{
+		s_pGfxSystem->Scene_Load(0, "Ñ¡ÈË11.Scene");
+		m_bIsLoadScene = true;
+	}
 
-	//s_pGfxSystem->Camera_SetEyePos(fVector3(-100,    325, -1000));
-	//s_pGfxSystem->Camera_SetLookAtPos(fVector3(-100, 320, 0));//
+	s_pGfxSystem->Camera_SetEyePos(fVector3( -100, 1000, 1050 ));
+	s_pGfxSystem->Camera_SetLookAtPos(fVector3( -100, 300, -0.7f ));
 
 	if(m_bClearUIModel)
 	{
