@@ -122,4 +122,7 @@ public:
 
 	// 切换到选择人物界面
 	void ChangeToSelectRole();
+	// 切换视角
+	void SetCharViewToGirl() ;
+	void SetCharViewToBoy() ;
 };

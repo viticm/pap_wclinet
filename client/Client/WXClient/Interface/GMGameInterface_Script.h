@@ -1586,6 +1586,12 @@ public:
 	//  Õ£÷π≤•∑≈“Ù¿÷°£2006£≠4£≠29
 	INT StopMusic(LuaPlus::LuaState* state);
 
+	INT ModelZoom( LuaPlus::LuaState* state ) ;
+	INT ModelRotBegin( LuaPlus::LuaState* state ) ;
+	INT ModelRotEnd( LuaPlus::LuaState* state ) ;
+	INT GetEquipSetCount( LuaPlus::LuaState* state ) ;
+	INT GetEquipSetName( LuaPlus::LuaState* state ) ;
+
 
 public:
 	static CGameProduce_Login s_GameProduceLogin;

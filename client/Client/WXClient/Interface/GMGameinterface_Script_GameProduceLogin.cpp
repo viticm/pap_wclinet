@@ -1018,4 +1018,64 @@ namespace SCRIPT_SANDBOX
 		}
 		return 0;
 	}
+
+	// 角色镜头拉伸
+	INT CGameProduce_Login::ModelZoom( LuaPlus::LuaState* state )
+	{
+		LuaStack args( state ) ;
+		if ( !( args[2].IsNumber() ) )
+		{
+			TDThrow( "LUA:ModelZoom param parameter error" ) ;
+		}
+		DOUBLE dStatus = args[2].GetDouble() ;
+		return 0 ;
+	}
+
+	// 角色旋转(开始)
+	INT CGameProduce_Login::ModelRotBegin( LuaPlus::LuaState* state )
+	{
+		LuaStack args(state);
+		if( !args[2].IsNumber())
+			return 0;
+
+		FLOAT fAngle = args[2].GetFloat();
+
+		//通知FakeObject系统
+		//g_pFakeSystem->RotateObj_Begin(m_pWindow->getProperty((CEGUI::utf8*)"FakeObject").c_str(), fAngle);
+
+		return 0;
+	}
+
+    // 角色旋转(结束)
+	INT CGameProduce_Login::ModelRotEnd( LuaPlus::LuaState* state )
+	{
+		LuaStack args(state);
+
+		//通知FakeObject系统
+		//g_pFakeSystem->RotateObj_End(m_pWindow->getProperty((CEGUI::utf8*)"FakeObject").c_str());
+
+		return 0;
+	}
+
+	// 得到装备模型数量
+	INT CGameProduce_Login::GetEquipSetCount( LuaPlus::LuaState* state )
+	{
+		LuaStack args(state);
+		state->PushInteger( 3 );
+		return 1;
+	}
+
+	// 根据装备索引获得装备的名称
+    INT CGameProduce_Login::GetEquipSetName( LuaPlus::LuaState* state )
+	{
+		LuaStack args( state ) ;
+		const char* Arr_EquipSetName[] = { "new1", "new2", "new3" } ;
+		if ( !( args[2].IsInteger() ) )
+		{
+			TDThrow("LUA:GetBuffIconNameByIndex param parameter error");
+		}
+		INT iIndex = args[2].GetInteger() ;
+		state->PushLString( Arr_EquipSetName[ iIndex ], sizeof( Arr_EquipSetName[ iIndex ] ) ) ;
+		return 1 ;
+	}
 }

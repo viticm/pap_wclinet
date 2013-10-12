@@ -1721,6 +1721,12 @@ VOID CScriptSystem::Initial(VOID*)
 	// ¹Ø±ÕÍøÂç×´Ì¬¡£
 	SCRIPT_SANDBOX::CGameProduce_Login::s_pMetaTable->RegisterObjectFunctor("CloseNetConnect",	&SCRIPT_SANDBOX::CGameProduce_Login::CloseNetConnect);
 
+	// new by viticm
+	SCRIPT_SANDBOX::CGameProduce_Login::s_pMetaTable->RegisterObjectFunctor("ModelZoom",	&SCRIPT_SANDBOX::CGameProduce_Login::ModelZoom);
+	SCRIPT_SANDBOX::CGameProduce_Login::s_pMetaTable->RegisterObjectFunctor("ModelRotBegin",	&SCRIPT_SANDBOX::CGameProduce_Login::ModelRotBegin);
+    SCRIPT_SANDBOX::CGameProduce_Login::s_pMetaTable->RegisterObjectFunctor("ModelRotEnd",	&SCRIPT_SANDBOX::CGameProduce_Login::ModelRotEnd);
+    SCRIPT_SANDBOX::CGameProduce_Login::s_pMetaTable->RegisterObjectFunctor("GetEquipSetCount",	&SCRIPT_SANDBOX::CGameProduce_Login::GetEquipSetCount);
+    SCRIPT_SANDBOX::CGameProduce_Login::s_pMetaTable->RegisterObjectFunctor("GetEquipSetName",	&SCRIPT_SANDBOX::CGameProduce_Login::GetEquipSetName);
 	LuaObject obj_GameProduceLogin = pState->BoxPointer(&(SCRIPT_SANDBOX::CGameProduce_Login::s_GameProduceLogin));
 	obj_GameProduceLogin.SetMetaTable(*SCRIPT_SANDBOX::CGameProduce_Login::s_pMetaTable);
 	objGlobal.SetObject("GameProduceLogin", obj_GameProduceLogin);

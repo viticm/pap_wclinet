@@ -54,8 +54,7 @@ CGamePro_CharCreate::~CGamePro_CharCreate()
 
 VOID CGamePro_CharCreate::Init(VOID)
 {
-	s_pGfxSystem->Camera_SetEyePos(fVector3(-100, 325, 4000));//LM修改
-	s_pGfxSystem->Camera_SetLookAtPos(fVector3(-100, 320, 0));
+	SetCharViewToGirl() ;
 
 	if(0 == m_iIsLoadFace)
 	{
@@ -84,6 +83,7 @@ VOID CGamePro_CharCreate::Init(VOID)
 			m_iIsLoadHairModel = 1;
 		}
 	}
+	s_pGfxSystem->Scene_Load(0, "chuangjian.Scene");
 
 	// 创建模型信息.
 	CreateModel();
@@ -363,5 +363,14 @@ void CGamePro_CharCreate::SetHairModelByRaceAndIndex(int iRace, int iIndex)
 	m_pAvatar[iRaceIndex]->GetCharacterData()->Set_HairMesh(m_iHairModle1);
 }
 
+void CGamePro_CharCreate::SetCharViewToGirl()
+{
+	s_pGfxSystem->Camera_SetEyePos(fVector3(-2550.00, 1469.00, -523.39));
+	s_pGfxSystem->Camera_SetLookAtPos(fVector3(0.00, -0.69, -0.73));
+}
 
-
+void CGamePro_CharCreate::SetCharViewToBoy()
+{
+	s_pGfxSystem->Camera_SetEyePos(fVector3(2550.00, 1320.44, 3550.00));
+	s_pGfxSystem->Camera_SetLookAtPos(fVector3(0.00, -0.69, -0.73)); 
+}

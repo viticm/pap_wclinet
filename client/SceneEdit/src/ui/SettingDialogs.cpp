@@ -366,10 +366,16 @@ void SettingsDialog::OnOK(wxCommandEvent& event)
         manipulator->setRealCameraHeight( Ogre::StringConverter::parseReal(height) );
 
 		Ogre::String angle = mCameraAngleTextCtrl->GetLabel();
+		Ogre::Vector3 currentCameraDirection = manipulator->getCamera()->getDirection() ;
+		char Arr_Msg[ 1024 ] ;
 
         manipulator->setRealCameraAngle( Ogre::StringConverter::parseReal(angle) );
 
         Ogre::Vector3 currentCameraPos = manipulator->getCamera()->getPosition();
+		_stprintf( Arr_Msg, "direction.x = %.2f\r\ndirection.y = %.2f\r\ndirection.z = %.2f\r\nposition.x = %.2f\r\nposition.y = %.2f\r\nposition.z = %.2f", 
+			currentCameraDirection.x, currentCameraDirection.y, currentCameraDirection.z,
+			currentCameraPos.x, currentCameraPos.y, currentCameraPos.z) ; 
+		MessageBox( NULL, Arr_Msg, "当前摄像机信息", MB_OK ) ;
 		manipulator->setRealCamera(currentCameraPos.x, currentCameraPos.z);
     }  
 
